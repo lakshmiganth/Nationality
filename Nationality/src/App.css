@@ -1,0 +1,396 @@
+/* font-family: 'Inter', sans-serif;
+font-family: 'Pacifico', cursive;
+font-family: 'Poppins', sans-serif; */
+
+* {
+	box-sizing: border-box;
+	padding: 0;
+	margin: 0;
+	font-family: "Inter", sans-serif;
+	font-weight: 400;
+}
+
+body {
+	background-image: url("./images/layered-background.svg");
+	background-size: cover;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 100vw;
+	height: 100vh;
+	padding-bottom: 20rem;
+	text-align: center;
+	color: white;
+	overflow: hidden;
+}
+
+h1 {
+	font-family: "Pacifico", cursive;
+	text-shadow: 1px 3px 0 rgb(255, 255, 255);
+	font-size: 5rem;
+	color: black;
+}
+
+h2,
+h3 {
+	font-family: "Poppins", sans-serif;
+	font-weight: 700;
+}
+
+input {
+	font-family: "Inter", sans-serif;
+	font-weight: 400;
+}
+
+/* Homepage */
+
+.home-container {
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	padding: 1.5rem 2rem;
+	border-radius: 6px;
+	background-color: #00274e;
+	box-shadow: 0 5px 10px black;
+	width: 70vw;
+	max-width: 600px;
+}
+
+.home-container:hover {
+	transition: 0.3s ease-in;
+	box-shadow: 0 0 10px rgba(255, 255, 255);
+}
+
+.home-container::before {
+	position: absolute;
+	content: "";
+	top: 5px;
+	bottom: 5px;
+	right: 5px;
+	left: 5px;
+	border: 2px solid rgb(250, 103, 113, 0.7);
+	border-radius: 6px;
+	box-shadow: 0 1px 0 rgb(0, 0, 0);
+	pointer-events: none;
+}
+
+.home-container::after {
+	position: absolute;
+	content: "";
+	top: 12px;
+	bottom: 12px;
+	right: 12px;
+	left: 12px;
+	border: 2px solid rgb(250, 103, 113, 0.4);
+	border-radius: 6px;
+	box-shadow: 0 1px 0 rgb(0, 0, 0);
+	pointer-events: none;
+}
+
+form {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	width: 100%;
+}
+
+#name-textbox {
+	width: 180px;
+	height: 32px;
+	text-indent: 1rem;
+	font-size: 1rem;
+	border: none;
+	margin: 0.2rem 0 1rem;
+}
+
+#submit-btn {
+	font-size: 1rem;
+	border: none;
+	width: 100px;
+	height: 32px;
+	padding: 0 1rem;
+	cursor: pointer;
+	background-color: rgb(255, 255, 255);
+	border-radius: 15px;
+	transition: 0.3s ease-in-out;
+}
+
+#submit-btn:hover,
+#submit-btn:focus {
+	transition: 0.3s ease-in-out;
+	width: 120px;
+	text-shadow: 1px 1px 0px black;
+	background-color: #eb3b5a;
+	color: white;
+}
+
+/* Prediction Page*/
+
+.data-container {
+	position: relative;
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	grid-gap: 0.5rem;
+	width: 80vw;
+	max-width: 1000px;
+}
+
+.data-container::before {
+	position: absolute;
+	content: "";
+	border-radius: 15px;
+	width: 5px;
+	top: 0;
+	bottom: 0;
+	left: -20px;
+	background: linear-gradient(
+		180deg,
+		rgba(0, 0, 0, 1) 0%,
+		rgba(0, 39, 78, 1) 100%
+	);
+}
+
+.data-container::after {
+	position: absolute;
+	content: "";
+	border-radius: 15px;
+	width: 5px;
+	top: 0;
+	bottom: 0;
+	right: -20px;
+	background: linear-gradient(
+		180deg,
+		rgba(0, 0, 0, 1) 0%,
+		rgba(0, 39, 78, 1) 100%
+	);
+}
+
+.card-name,
+.card-nationality {
+	grid-column: span 2;
+}
+
+.card-name {
+	position: relative;
+	background-color: black;
+	padding: 1.2rem 0;
+	border-top-left-radius: 15px;
+	border-top-right-radius: 15px;
+}
+
+.card-name::before {
+	position: absolute;
+	content: "";
+	right: 35%;
+	top: 15px;
+	left: 35%;
+	height: 2px;
+	background-color: #eb3b5a;
+}
+
+.card-name::after {
+	position: absolute;
+	content: "";
+	right: 27%;
+	bottom: 12px;
+	left: 27%;
+	height: 2px;
+	background-color: #eb3b5a;
+}
+
+.card {
+	width: 100%;
+	height: 80px;
+	perspective: 1000px;
+}
+
+.card-content {
+	position: relative;
+	width: 100%;
+	height: 100%;
+	transform-style: preserve-3d;
+	transition: 1s ease;
+}
+
+.card:hover .card-content {
+	transition: 0.6s ease;
+	transform: rotateX(180deg);
+}
+
+.card-front,
+.card-back {
+	box-shadow: 0 0 5px black;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: row;
+	border-radius: 6px;
+	position: absolute;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	right: 0;
+	backface-visibility: hidden;
+}
+
+.card-front {
+	background-color: #00274e;
+}
+
+.card-back {
+	background-color: black;
+	text-transform: uppercase;
+	color: #eb3b5a;
+	text-shadow: 1px 1px 2px white;
+	transform: rotateX(180deg);
+}
+
+.card-back:before {
+	position: absolute;
+	content: "";
+	top: 5px;
+	right: 5px;
+	bottom: 5px;
+	left: 5px;
+	border: 2px solid #eb3b5a;
+}
+
+.card-back:after {
+	position: absolute;
+	content: "";
+	top: 10px;
+	right: 10px;
+	bottom: 10px;
+	left: 10px;
+	border: 2px solid #eb3b5a;
+}
+
+.card-front:before {
+	position: absolute;
+	content: "";
+	top: 5px;
+	right: 5px;
+	bottom: 5px;
+	left: 5px;
+	border: 2px solid #eb3b5a;
+}
+
+.card-front img {
+	height: 60%;
+	margin-left: 2rem;
+}
+
+.restart-btn {
+	position: relative;
+
+	border: none;
+	border-radius: 6px;
+	background-color: transparent;
+	border: 2px solid black;
+	color: white;
+	width: 40px;
+	height: 40px;
+	margin: 1rem 0;
+}
+
+.restart-btn:after {
+	background-image: url("./images/restart-icon.png");
+	background-size: 100%;
+	background-position: center;
+	background-repeat: no-repeat;
+	position: absolute;
+	content: "";
+	top: 0;
+	bottom: 0;
+	right: 0;
+	left: 0;
+	z-index: 10;
+	pointer-events: none;
+}
+
+.restart-btn:hover {
+	transition: 0.6s ease-in;
+	background-color: #ffffff98;
+}
+
+.restart-btn:hover:after {
+	transition: 0.6s ease-in;
+	transform: rotate(-360deg);
+}
+
+/* If no info is avilable Div*/
+
+.no-data-div {
+	width: 70vw;
+	max-width: 900px;
+	padding: 2rem;
+	border-radius: 6px;
+	background-color: #00274e;
+	line-height: 45px;
+	box-shadow: 0 5px 10px black;
+}
+
+/* Rocket Animation */
+
+.rocketship {
+	position: absolute;
+	bottom: 0;
+	right: 10px;
+	animation: rocketup 20s;
+	width: 80px;
+	z-index: -10;
+}
+
+@keyframes rocketup {
+	0% {
+		bottom: 0;
+	}
+
+	40% {
+		bottom: 150%;
+	}
+	80% {
+		left: 10px;
+		bottom: -50%;
+		transform: rotateX(180deg);
+	}
+	100% {
+		bottom: 0;
+		right: 10px;
+	}
+}
+
+/* Showe answers for mobile */
+
+@media only screen and (max-width: 600px) {
+	.card-content {
+		transition: 1s ease;
+		transform: rotateX(180deg);
+	}
+	h1 {
+		font-size: 3.5rem;
+	}
+	h2 {
+		font-size: 1.2rem;
+	}
+	.card-back h2 {
+		font-size: 0.9rem !important;
+	}
+	p {
+		font-size: 0.7rem;
+	}
+	.rocketship {
+		width: 60px;
+	}
+	.card-name::before {
+		right: 40%;
+		left: 40%;
+	}
+	.card-name::after {
+		right: 10%;
+		left: 10%;
+	}
+}
